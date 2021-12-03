@@ -189,15 +189,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="jena-arq-2.9.3.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/CQELS-lib/jena-arq-2.9.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="je-5.0.73.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/CQELS-lib/je-5.0.73.jar!/" />
@@ -237,15 +228,6 @@
       <library name="fastutil-6.4.2.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/CQELS-lib/fastutil-6.4.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="esper-4.2.0.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/CQELS-lib/esper-4.2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -308,7 +290,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jasperNeu.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/csparql2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -317,10 +299,21 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/esper-7.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/CQELS-lib/jena-arq-2.9.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/rsp4j.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/rsp4j.jar!/OSGI-OPT/src" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

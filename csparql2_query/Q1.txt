@@ -10,15 +10,15 @@ FROM NAMED WINDOW <w1> ON <http://www.insight-centre.org/dataset/SampleEventServ
 FROM NAMED WINDOW <w2> ON <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData158505> [RANGE PT3S STEP PT1S]
 FROM <http://localhost/WebGlCity/RDF/SensorRepository.rdf>
 WHERE {
-	WINDOW <w1> {
 	    ?p1 a ct:CongestionLevel .
+	    ?p2 a ct:CongestionLevel .
+	WINDOW <w1> {
 		?obId1 ssn:observedProperty ?p1 ;
 			   sao:hasValue ?v1 ;
 			   ssn:observedBy ses:AarhusTrafficData182955 .
 	}
 
 	WINDOW <w2> {
-	    ?p2 a ct:CongestionLevel .
 		?obId2 ssn:observedProperty ?p2 ;
 			   sao:hasValue ?v2 ;
 			   ssn:observedBy ses:AarhusTrafficData158505 .

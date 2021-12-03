@@ -1,7 +1,7 @@
 package org.insight_centre.aceis.io.streams.csparql2;
 
 import com.csvreader.CsvReader;
-import it.polimi.yasper.core.stream.data.DataStreamImpl;
+import org.apache.jena.graph.Graph;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -15,6 +15,8 @@ import org.insight_centre.aceis.observations.SensorObservation;
 import org.insight_centre.citybench.main.CityBench;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.streamreasoning.rsp4j.api.stream.data.DataStream;
+import org.streamreasoning.rsp4j.io.DataStreamImpl;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -149,7 +151,7 @@ public class CSPARQL2AarhusParkingStream extends CSPARQL2SensorStream implements
 		return null;
 
 	}
-	public void setWritable(DataStreamImpl<org.apache.jena.graph.Graph> e) {
+	public void setWritable(DataStream<Graph> e) {
 		this.s = e;
 	}
 }

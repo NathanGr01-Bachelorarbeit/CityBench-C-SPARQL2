@@ -1,8 +1,5 @@
 package org.insight_centre.aceis.io.streams.csparql2;
 
-import it.polimi.sr.rsp.csparql.sysout.ConstructSysOutDefaultFormatter;
-import it.polimi.sr.rsp.csparql.sysout.SelectSysOutDefaultFormatter;
-import it.polimi.yasper.core.format.QueryResultFormatter;
 import org.apache.jena.graph.Graph;
 import org.apache.jena.sparql.algebra.Table;
 import org.apache.jena.sparql.core.Var;
@@ -13,6 +10,9 @@ import org.insight_centre.aceis.observations.SensorObservation;
 import org.insight_centre.citybench.main.CityBench;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.streamreasoning.rsp4j.api.format.QueryResultFormatter;
+import org.streamreasoning.rsp4j.csparql2.sysout.ConstructSysOutDefaultFormatter;
+import org.streamreasoning.rsp4j.csparql2.sysout.SelectSysOutDefaultFormatter;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -64,26 +64,16 @@ public class CSPARQL2ResultListener extends QueryResultFormatter {
 				while(iter.hasNext()) {
 					resultString += FmtUtils.stringForNode(binding.get((Var) iter.next())).replaceAll("\t", " ").trim() + " ";
 				}
+				//logger.info("ResultsString: " + resultString + "\n");
 
-				if (capturedResults.contains(resultString)) {
+				/*if (capturedResults.contains(resultString)) {
 					logger.debug("Early return");
 					continue;
-				}
+				}*/
 				//capturedResults.add(resultString);
 
 				String[] resultArr = resultString.split(" ");
-				/*int indexFOI = -1;
-				for(int i = 0; i < names.size(); i++) {
-					if(names.get(i).equals("foi2"))
-						indexFOI = i;
-				}
-				int indexLAT = -1;
-				for(int i = 0; i < names.size(); i++) {
-					if(names.get(i).equals("lat2"))
-						indexLAT = i;
-				}
-				logger.info("Foi2: " + resultArr[indexFOI]);
-				logger.info("Lat2: " + resultArr[indexLAT]);*/
+
 				cnt += 1;
 				for (int i : indexes) {
 					// String obid = t.get(i);
@@ -129,4 +119,8 @@ public class CSPARQL2ResultListener extends QueryResultFormatter {
 		this.uri = uri;
 	}
 
+	@Override
+	public void notify(Object o, long l) {
+
+	}
 }

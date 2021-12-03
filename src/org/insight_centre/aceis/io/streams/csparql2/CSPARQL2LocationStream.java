@@ -1,6 +1,6 @@
 package org.insight_centre.aceis.io.streams.csparql2;
 
-import it.polimi.yasper.core.stream.data.DataStreamImpl;
+import org.apache.jena.graph.Graph;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -11,6 +11,8 @@ import org.insight_centre.aceis.observations.SensorObservation;
 import org.insight_centre.citybench.main.CityBench;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.streamreasoning.rsp4j.api.stream.data.DataStream;
+import org.streamreasoning.rsp4j.io.DataStreamImpl;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -141,7 +143,7 @@ public class CSPARQL2LocationStream extends CSPARQL2SensorStream implements Runn
 		return so;
 	}
 
-	public void setWritable(DataStreamImpl<org.apache.jena.graph.Graph> e) {
+	public void setWritable(DataStream<Graph> e) {
 		this.s = e;
 	}
 }

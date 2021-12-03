@@ -1,28 +1,8 @@
 package org.insight_centre.citybench.main;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Properties;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-
-import it.polimi.yasper.core.engine.config.EngineConfiguration;
-import it.polimi.yasper.core.querying.ContinuousQuery;
-import it.polimi.yasper.core.querying.ContinuousQueryExecution;
-import it.polimi.yasper.core.sds.SDSConfiguration;
-import it.polimi.yasper.core.stream.data.DataStreamImpl;
+import com.hp.hpl.jena.reasoner.ReasonerRegistry;
+import eu.larkc.csparql.engine.CsparqlEngineImpl;
+import eu.larkc.csparql.engine.CsparqlQueryResultProxy;
 import org.apache.jena.graph.Graph;
 import org.apache.jena.query.ARQ;
 import org.deri.cqels.engine.ContinuousSelect;
@@ -30,35 +10,29 @@ import org.deri.cqels.engine.ExecContext;
 import org.insight_centre.aceis.eventmodel.EventDeclaration;
 import org.insight_centre.aceis.io.EventRepository;
 import org.insight_centre.aceis.io.rdf.RDFFileManager;
-import org.insight_centre.aceis.io.streams.cqels.CQELSAarhusParkingStream;
-import org.insight_centre.aceis.io.streams.cqels.CQELSAarhusPollutionStream;
-import org.insight_centre.aceis.io.streams.cqels.CQELSAarhusTrafficStream;
-import org.insight_centre.aceis.io.streams.cqels.CQELSAarhusWeatherStream;
-import org.insight_centre.aceis.io.streams.cqels.CQELSLocationStream;
-import org.insight_centre.aceis.io.streams.cqels.CQELSResultListener;
-import org.insight_centre.aceis.io.streams.cqels.CQELSSensorStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLAarhusPollutionStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLAarhusParkingStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLAarhusTrafficStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLAarhusWeatherStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLLocationStream;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLResultObserver;
-import org.insight_centre.aceis.io.streams.csparql.CSPARQLSensorStream;
+import org.insight_centre.aceis.io.streams.cqels.*;
+import org.insight_centre.aceis.io.streams.csparql.*;
 import org.insight_centre.aceis.io.streams.csparql2.*;
 import org.insight_centre.aceis.observations.SensorObservation;
 import org.insight_centre.aceis.utils.test.PerformanceMonitor;
-//import org.insight_centre.aceis.io.streams.csparql.CSPARQLResultObserver;
-import it.polimi.sr.rsp.csparql.engine.*;
 import org.slf4j.Logger;
-//import org.apache.log4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.streamreasoning.rsp4j.api.engine.config.EngineConfiguration;
+import org.streamreasoning.rsp4j.api.querying.ContinuousQuery;
+import org.streamreasoning.rsp4j.api.sds.SDSConfiguration;
+import org.streamreasoning.rsp4j.api.stream.data.DataStream;
+import org.streamreasoning.rsp4j.csparql2.engine.CSPARQLEngine;
+import org.streamreasoning.rsp4j.csparql2.engine.JenaContinuousQueryExecution;
 
-import com.hp.hpl.jena.reasoner.ReasonerRegistry;
-
-import eu.larkc.csparql.engine.CsparqlEngineImpl;
-import eu.larkc.csparql.engine.CsparqlQueryResultProxy;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CityBench {
 	public enum RSPEngine {
@@ -314,14 +288,15 @@ public class CityBench {
 	private void initCSPARQL2() throws IOException {
 		try {
 			ARQ.init();
-			String path = "jar:" + CityBench.class.getResource("/csparql.properties").getPath();
-			//String path = CityBench.class.getResource("/csparql.properties").getPath();
+			//String path = "jar:" + CityBench.class.getResource("/csparql.properties").getPath();
+			String path = CityBench.class.getResource("/csparql.properties").getPath();
 			EngineConfiguration ec = new EngineConfiguration(path);
 			config = new SDSConfiguration(path);
 			csparql2Engine = new CSPARQLEngine(0, ec);
-			this.startCSPARQL2Streams();
+			this.prepareCSPARQL2Streams();
 			for (int i = 0; i < this.queryDuplicates; i++)
 				this.registerCSPARQL2Queries();
+			this.startCSPARQL2Streams();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -441,9 +416,9 @@ public class CityBench {
 
 	private void registerCSPARQL2Query(String qid, String query) throws ParseException {
 		if (!registeredQueries.keySet().contains(qid)) {
-			ContinuousQueryExecution cqe = csparql2Engine.register(query, config);
-			ContinuousQuery q = cqe.getContinuousQuery();
-			cqe.add(new CSPARQL2ResultListener(qid,"TABLE", true));
+			JenaContinuousQueryExecution cqe = (JenaContinuousQueryExecution)csparql2Engine.register(query, config);
+			ContinuousQuery q = cqe.query();
+			cqe.addQueryFormatter(new CSPARQL2ResultListener(qid,"TABLE", true));
 		}
 	}
 
@@ -524,14 +499,14 @@ public class CityBench {
 
 	}
 
-	private void startCSPARQL2Streams() throws Exception {
+	private void prepareCSPARQL2Streams() throws Exception {
 		for (String s : this.queryMap.values()) {
-			this.startCSPARQL2StreamsFromQuery(s);
+			this.prepareCSPARQL2StreamsFromQuery(s);
 		}
 
 	}
 
-	private void startCSPARQL2StreamsFromQuery(String query) throws Exception {
+	private void prepareCSPARQL2StreamsFromQuery(String query) throws Exception {
 		List<String> streamNames = this.getStreamFileNamesFromQuery(query);
 		for (String sn : streamNames) {
 			String uri = RDFFileManager.defaultPrefix + sn.split("\\.")[0];
@@ -556,14 +531,19 @@ public class CityBench {
 				yss.setRate(this.rate);
 				yss.setFreq(this.frequency);
 
-				DataStreamImpl<Graph> register = csparql2Engine.register(yss);
+				DataStream<Graph> register = csparql2Engine.register(yss);
 				yss.setWritable(register);
 
-				new Thread(yss).start();
+				//new Thread(yss).start();
 				startedStreamObjects.add(yss);
 			}
 		}
 
+	}
+	private void startCSPARQL2Streams() {
+		for(CSPARQL2SensorStream css : new ArrayList<CSPARQL2SensorStream>(startedStreamObjects)) {
+			new Thread(css).start();
+		}
 	}
 
 	protected void startTest() throws Exception {
