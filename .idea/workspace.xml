@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fc408b1-7545-4089-bd02-f6b2ce7dd97c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" afterDir="false" />
@@ -29,24 +30,11 @@
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ISWC2015-CityBench.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ISWC2015-CityBench.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/csparql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bin/csparql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/csparql2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bin/csparql2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/resources/csparql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/resources/csparql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/resources/csparql2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/resources/csparql2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csparql2_query/Q1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/csparql2_query/Q1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment_scripts/CSPARQL2.0/CSPARQL2_Q1_Freq.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/CSPARQL2.0/CSPARQL2_Q1_Freq.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/csparql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/csparql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusParkingStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusParkingStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusPollutionStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusPollutionStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EC-log.log" beforeDir="false" afterPath="$PROJECT_DIR$/EC-log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusTrafficStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusTrafficStream.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/csparql2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/csparql2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rsp4j.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rsp4j.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusTrafficStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusTrafficStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusWeatherStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2AarhusWeatherStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2LocationStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2LocationStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2ResultListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2ResultListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2SensorStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/csparql2/CSPARQL2SensorStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/insight_centre/citybench/main/CityBench.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/insight_centre/citybench/main/CityBench.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/resources/csparql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/resources/csparql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/resources/csparql2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/resources/csparql2.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/CQELS-lib/jena-arq-2.9.3.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/rsp4j.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -101,7 +89,7 @@
     <configuration name="CityBench" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.insight_centre.citybench.main.CityBench" />
       <module name="ISWC2015-CityBench" />
-      <option name="PROGRAM_PARAMETERS" value="engine=csparql2 startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q1.txt frequency=1 queryDuplicates=1 duration=25s" />
+      <option name="PROGRAM_PARAMETERS" value="engine=csparql2 startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q1.txt frequency=1 queryDuplicates=1 duration=50s" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.insight_centre.citybench.main.*" />
@@ -189,7 +177,12 @@
       <workItem from="1638444341128" duration="5935000" />
       <workItem from="1638453148939" duration="795000" />
       <workItem from="1638459079441" duration="149000" />
-      <workItem from="1638524770539" duration="8295000" />
+      <workItem from="1638524770539" duration="8585000" />
+      <workItem from="1638542116635" duration="279000" />
+      <workItem from="1638545054864" duration="619000" />
+      <workItem from="1638545812208" duration="1471000" />
+      <workItem from="1638551416445" duration="207000" />
+      <workItem from="1638551709948" duration="671000" />
     </task>
     <servers />
   </component>

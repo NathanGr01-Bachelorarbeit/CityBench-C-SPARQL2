@@ -239,7 +239,9 @@ public class CSPARQL2AarhusTrafficStream extends CSPARQL2SensorStream implements
 				Model model = this.getModel(data);
 				long messageByte = 0;
 				try {
+					System.out.println("Put");
 					s.put(model.getGraph(), System.currentTimeMillis());
+					System.out.println("Put finished");
 					//logger.debug(this.stream_uri + " Streaming: " + model.getGraph().toString());
 
 				} catch (Exception e) {
